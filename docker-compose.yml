@@ -1,0 +1,23 @@
+version: '3.5'
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: postgres
+    hostname: postgres
+    ports:
+      - 5432:5432
+    env_file:
+      - ./postgres/database.env
+    volumes:
+      - ./postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+  accountmanager:
+    image: accountmanager:latest
+    container_name: accountmanager
+    depends_on:
+      - postgres
+    ports:
+      - 8080:8080
+    environment:
+      - spring.profiles.active=local
+      - spring.r2dbc.url=r2dbc:postgresql://myuser:mypassword@postgres/mydb

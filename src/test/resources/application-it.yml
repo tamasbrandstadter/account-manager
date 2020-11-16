@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    initialization-mode: always
+  r2dbc:
+    url: r2dbc:h2:file:///./tmp/testdb
+
+server:
+  shutdown: immediate
+

@@ -1,0 +1,15 @@
+[
+  {
+    "id": 22,
+    "balance": 25.5,
+    "currency": "EUR",
+    "customerId": 2,
+    "createdAt": "2020-11-15T13:05:00Z"
+  },
+  {
+    "id": 23,
+    "balance": 79.5,
+    "currency": "USD",
+    "customerId": 3
+  }
+]

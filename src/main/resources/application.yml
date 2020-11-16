@@ -1,0 +1,28 @@
+server:
+  port: 8080
+  compression:
+    enabled: true
+  shutdown: graceful
+
+info:
+  version: 0.0.1-MVP
+
+logging:
+  level:
+    root: info
+    com.bank: info
+
+spring:
+  lifecycle:
+    timeout-per-shutdown-phase: 30s
+  application:
+    name: accountmanager
+  jackson:
+    default-property-inclusion: non_null
+
+management:
+  endpoint:
+    configprops:
+      enabled: false
+    health:
+      show-details: always
