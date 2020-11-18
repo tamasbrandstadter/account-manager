@@ -7,7 +7,11 @@ import com.bank.accountmanager.handler.request.OperationRequest;
 import com.bank.accountmanager.repository.AccountRepository;
 import com.bank.accountmanager.repository.CustomerRepository;
 import com.bank.accountmanager.router.AccountManagerRouter;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.reactive.AutoConfigureWebTestClient;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -32,7 +36,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON;
 @SpringBootTest
 @AutoConfigureWebTestClient(timeout = "36000")
 @Import(TestConfig.class)
-@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+@TestMethodOrder(OrderAnnotation.class)
 public class AccountManagerIntegrationTest {
     private static final String CREATE_CUSTOMER_ENDPOINT = "/customer";
     private static final String CREATE_ACCOUNT_ENDPOINT = "/account";
@@ -51,7 +55,6 @@ public class AccountManagerIntegrationTest {
     private CustomerRepository customerRepository;
 
     @Autowired
-
     private WebTestClient webTestClient;
 
     @BeforeEach
